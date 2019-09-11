@@ -22,6 +22,7 @@ def create_table(kwargs):
             image_id SERIAL PRIMARY KEY,
             post_id VARCHAR(80) NOT NULL,
             image_url VARCHAR(500) NOT NULL,
+            UNIQUE (post_id, image_url),
             FOREIGN KEY (post_id)
             REFERENCES posts (post_id)
             ON UPDATE CASCADE ON DELETE CASCADE 

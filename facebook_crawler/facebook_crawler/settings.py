@@ -64,9 +64,9 @@ DOWNLOAD_DELAY = 2.5
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'facebook_crawler.pipelines.FacebookCrawlerPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'facebook_crawler.pipelines.FacebookPostgresPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -88,3 +88,12 @@ DOWNLOAD_DELAY = 2.5
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# Provide Progres Database setting here
+# DB_SETTINGS = {
+#     'db': 'fb_page',
+#     'user': 'postgres',
+#     'password': 'password',
+#     'host': 'localhost',
+#     'port': '5432'
+# }

@@ -84,10 +84,17 @@ class FbPageSpider(FbBaseSpider):
                 './/div[@data-testid="post_message"]'
                 '//text()[not(ancestor::span[@class="text_exposed_hide"])]'
             )
-            loader.add_css('image_urls', '.mtm a::attr(data-ploi)')
+            loader.add_css(
+                'image_urls', '.mtm a::attr(data-ploi)',
+                MapCompose(lambda v: v.split('?')[0])
+            )
             loader.add_css(
                 'video_url', '.fsm>a::attr(href)',
-                MapCompose(response.urljoin, lambda v: v if 'videos' in v else None)
+                MapCompose(
+                    response.urljoin,
+                    lambda v: v if 'videos' in v else None,
+                    lambda v: v.split('?')[0]
+                )
             )
             if 'reaction_units/more' in response.url:
                 post_json_data = structural_json_data.get(post_id)
