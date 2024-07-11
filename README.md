@@ -1,4 +1,7 @@
 # FBP crawler
+
+New version (2024) Please visit [FacebookCrawler](https://github.com/opplieam/FacebookCrawler)
+
 FBP crawler is a web spider for facebook, written in [Scrapy](https://scrapy.org/) framework without using Splash / Selenium. 
 Currently, support only 
 Facebook Page. Given a page id, It's can extract all the posts, images url, reaction count, comment count and so on.
